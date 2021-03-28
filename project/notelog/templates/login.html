@@ -25,17 +25,20 @@
   <hr />
   <br />
   <form action="/logined" method="post">
-    <label for="id_username">Username:</label><input type="text" name="loginusername" id="loginusername"
-      required /><br /><br />
-    <label for="id_password1">Password:</label><input type="password" name="loginpassword" id="loginpassword"
-      required /><br /><br />
     {% if user.is_authenticated %}
     <h3>Welcome {{request.user}}</h3>
     <button>
       <a href="/logout" class="button">Logout</a>
     </button>
     {% else %}
+    <label for="id_username">Username:</label><input type="text" name="loginusername" id="loginusername"
+    required /><br /><br />
+  <label for="id_password1">Password:</label><input type="password" name="loginpassword" id="loginpassword"
+    required /><br /><br />
     <input type="submit" value="Login" />
+    <button>
+      <a href="/register" class="button">Register</a>
+    </button>
     {% endif %}
   </form>
 </body>
