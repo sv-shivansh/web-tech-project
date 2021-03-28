@@ -9,7 +9,7 @@ from django.contrib.auth import login as auth_login
 
 
 def home(request):
-    return HttpResponse("This is Home page")
+    return render(request, 'home.html')
 
 
 def register(request):
@@ -42,11 +42,19 @@ def handleRegister(request):
         if len(password1) < 6:
             messages.error(request, "Password should be greater than 6.")
             return redirect('register')
+<<<<<<< HEAD
 
         if User.objects.filter(email=email).exists():
             messages.error(request, "Already Registered. Try logging in")
             return redirect('register')
 
+=======
+        
+        if User.objects.filter(email=email).exists():
+            messages.error(request, "Already Registered. Try logging in")
+            return redirect('register')
+        
+>>>>>>> notelog_login
         if User.objects.filter(username=username).exists():
             messages.error(request, "Already Registered. Try logging in")
             return redirect('register')
@@ -58,3 +66,31 @@ def handleRegister(request):
         return redirect('register')
     else:
         return HttpResponse('404 - Not Found')
+<<<<<<< HEAD
+=======
+
+
+@csrf_exempt
+def handleLogin(request):
+    if request.method == 'POST':
+        # Get the post parameters
+        loginusername = request.POST['loginusername']
+        loginpassword = request.POST['loginpassword']
+
+        user = authenticate(username=loginusername, password=loginpassword)
+
+        if user is not None:
+            auth_login(request, user)
+            messages.success(request, "Successfully, Logged In.")
+            return redirect('home')
+        else:
+            messages.error(request, "Invalid Credentials, Please try again.")
+            return redirect('login')
+
+
+@csrf_exempt
+def handleLogout(request):
+    logout(request)
+    messages.success(request, "Successfully, Logged Out.")
+    return redirect('home')
+>>>>>>> notelog_login
