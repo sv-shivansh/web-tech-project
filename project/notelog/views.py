@@ -9,7 +9,7 @@ from django.contrib.auth import login as auth_login
 
 
 def home(request):
-    return HttpResponse("This is Home page")
+    return render(request, 'home.html')
 
 
 def register(request):
@@ -72,7 +72,7 @@ def handleLogin(request):
         if user is not None:
             auth_login(request, user)
             messages.success(request, "Successfully, Logged In.")
-            return redirect('login')
+            return redirect('home')
         else:
             messages.error(request, "Invalid Credentials, Please try again.")
             return redirect('login')
@@ -82,4 +82,4 @@ def handleLogin(request):
 def handleLogout(request):
     logout(request)
     messages.success(request, "Successfully, Logged Out.")
-    return redirect('login')
+    return redirect('home')
