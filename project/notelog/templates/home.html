@@ -36,6 +36,9 @@
     </div>
     {% endfor %} This is home page.
     <h3>Welcome {{request.user}}</h3>
+    {% for todo in todos %}
+    <h3>{{ todo.task }} at <h5>{{todo.time}}</h5></h3>
+    {% endfor %}
 </body>
 
 </html>

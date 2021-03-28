@@ -4,12 +4,14 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import logout, authenticate
 from django.contrib.auth import login as auth_login
+from .models import toDo 
 
 # Create your views here.
 
 
 def home(request):
-    return render(request, 'home.html')
+    todos = toDo.objects.all().filter(user = request.user)
+    return render(request, 'home.html', {'todos': todos})
 
 
 def register(request):
