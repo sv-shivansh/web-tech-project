@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +7,7 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel = "stylesheet" href="{% static 'styles.css' %}" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HomePage</title>
 </head>
@@ -34,11 +36,30 @@
     </div>
     {% endfor %}
     <h3>Welcome {{request.user}}</h3>
-    {% for todo in todos %}
-    <div style = "text-align: center;">
-    <h3>{{ todo.task }} at <h5>{{todo.time}}</h5></h3>
-    <hr>
+    {% if user.is_authenticated %}
+    <form action='' method= "POST">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="main-todo-input-wrap">
+                    <div class="main-todo-input fl-wrap">
+                        <div class="main-todo-input-item"> <input type="text" id="todo-list-item" placeholder="What will you do today?"> </div> <button type="submit" class="add-items main-search-button">ADD</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-todo-input-wrap">
+                <div class="main-todo-input fl-wrap todo-listing">
+                    <ul id="list-items">
+                    {% for todo in todos %}
+                        <h5><li>{{ todo.task }}</li></h5>                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    {% endfor %}
+{% endif %}
 </body>
 </html>
