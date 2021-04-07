@@ -14,7 +14,6 @@
     <nav>
         {% if user.is_authenticated %}
         <button>
-
             <a href="logout" class="button">Logout</a>
         </button>
         {% else %}
@@ -24,7 +23,6 @@
         <button>
             <a href="register" class="button">Register</a>
         </button>
-        
         {% endif %}
     </nav>
     {% for message in messages %}
