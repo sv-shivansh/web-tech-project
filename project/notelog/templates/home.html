@@ -35,7 +35,7 @@
         </button>
     </div>
     {% endfor %}
-    <h3>Welcome {{request.user}}</h3>
+    <center><h3>Welcome {{request.user}}</h3></center>
     {% if user.is_authenticated %}
     <form action='{% url 'addTodo' %}' method= "POST" role="form">
         {% csrf_token %}
