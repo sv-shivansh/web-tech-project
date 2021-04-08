@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import logout, authenticate
 from django.contrib.auth import login as auth_login
 from .models import toDo 
+from django.views.decorators.http import require_GET, require_POST
 
 # Create your views here.
 
@@ -85,3 +86,16 @@ def handleLogout(request):
     logout(request)
     messages.success(request, "Successfully, Logged Out.")
     return redirect('home')
+
+@require_POST
+def addTodo(request):
+
+    if request.method == 'POST':
+        todos = toDo.objects.all().filter(user=request.user)
+        user = request.user
+        task = request.POST["task"]
+        addmsg = toDo(task=task, user=user)
+        addmsg.save()
+        return render(request, 'home.html', {'todos': todos})
+    else:
+        return HttpResponse('404 - Not Found')

@@ -37,12 +37,13 @@
     {% endfor %}
     <h3>Welcome {{request.user}}</h3>
     {% if user.is_authenticated %}
-    <form action='' method= "POST">
+    <form action='{% url 'addTodo' %}' method= "POST" role="form">
+        {% csrf_token %}
         <div class="row">
             <div class="col-md-12">
                 <div class="main-todo-input-wrap">
                     <div class="main-todo-input fl-wrap">
-                        <div class="main-todo-input-item"> <input type="text" id="todo-list-item" placeholder="What will you do today?"> </div> <button type="submit" class="add-items main-search-button">ADD</button>
+                        <div class="main-todo-input-item"> <input type="text" name = "task" id="todo-list-item" placeholder="What will you do today?"> </div> <button type="submit" class="add-items main-search-button">ADD</button>
                     </div>
                 </div>
             </div>
@@ -54,7 +55,8 @@
                 <div class="main-todo-input fl-wrap todo-listing">
                     <ul id="list-items">
                     {% for todo in todos %}
-                        <h5><li>{{ todo.task }}</li></h5>                    {% endfor %}
+                        <h5><li>{{ todo.task }}</li></h5>                    
+                    {% endfor %}
                     </ul>
                 </div>
             </div>
