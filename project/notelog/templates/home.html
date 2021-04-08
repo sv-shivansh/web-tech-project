@@ -8,33 +8,34 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel = "stylesheet" href="{% static 'styles.css' %}" type="text/css">
+    <link rel = "stylesheet" href="{% static 'styles1.css' %}" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HomePage</title>
 </head>
 
 <body>
     <nav>
-        {% if user.is_authenticated %}
-        <button>
-            <a href="logout" class="button">Logout</a>
-        </button>
-        {% else %}
-        <button>
-            <a href="login" class="button">Login</a>
-        </button>
-        <button>
-            <a href="register" class="button">Register</a>
-        </button>
-        {% endif %}
+        <section>
+            {% for message in messages %}
+            <div class="newalert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                <strong>Message:</strong> {{ message }}
+            </div>
+            {% endfor %}  
+            {% if user.is_authenticated %}
+            <button>
+                <a href="logout" class="button">Logout</a>
+            </button>
+            {% else %}
+            <button>
+                <a href="/login" class="button">Login</a>
+            </button>
+            <button>
+                <a href="register" class="button">Register</a>
+            </button>
+            {% endif %}
+        </section>
     </nav>
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-        <strong>Message : </strong> {{ message }}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    {% endfor %}
     <center><h3>Welcome {{request.user}}</h3></center>
     {% if user.is_authenticated %}
     <form action='{% url 'addTodo' %}' method= "POST" role="form">
@@ -57,7 +58,7 @@
                 <div class="main-todo-input fl-wrap todo-listing">
                     <ul id="list-items">
                     {% for todo in todos %}
-                        <h5><li>{{ todo.task }}</li></h5>                    
+                        <h5><li>{{ todo.task }}<a href="{% url 'markasComplete' %}"><button type="button" class="btn btn-primary">Mark as Completed</button></a></li></h5>                    
                     {% endfor %}
                     </ul>
                 </div>

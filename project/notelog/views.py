@@ -11,20 +11,14 @@ from django.views.decorators.http import require_GET, require_POST
 
 
 def home(request):
-    todos = toDo.objects.all().filter(user = request.user)
-    return render(request, 'home.html', {'todos': todos})
-
-
-def register(request):
-    return render(request, 'register.html')
-
-
-def login(request):
-    return render(request, 'login.html')
-
+    if request.user == 'AnonymousUser':
+        todos = toDo.objects.all().filter(user = request.user)
+        return render(request, 'home.html', {'todos': todos})
+    else:
+        return render(request, 'landing.html')
 
 @csrf_exempt
-def handleRegister(request):
+def register(request):
     if request.method == 'POST':
         # Get the post parameters
         username = request.POST['username']
@@ -58,18 +52,14 @@ def handleRegister(request):
         myuser = User.objects.create_user(username, email, password1)
         myuser.save()
         messages.success(request, "Successfully, Registered.")
-        return redirect('register')
-    else:
-        return HttpResponse('404 - Not Found')
-
+        return redirect('login')
+    return render(request, 'register.html')
 
 @csrf_exempt
-def handleLogin(request):
+def login(request):
     if request.method == 'POST':
-        # Get the post parameters
         loginusername = request.POST['loginusername']
         loginpassword = request.POST['loginpassword']
-
         user = authenticate(username=loginusername, password=loginpassword)
 
         if user is not None:
@@ -79,7 +69,7 @@ def handleLogin(request):
         else:
             messages.error(request, "Invalid Credentials, Please try again.")
             return redirect('login')
-
+    return render(request, 'login.html')
 
 @csrf_exempt
 def handleLogout(request):
@@ -96,16 +86,18 @@ def addTodo(request):
         task = request.POST["task"]
         addmsg = toDo(task=task, user=user)
         addmsg.save()
-        return render(request, 'home.html', {'todos': todos})
+        todos = toDo.objects.all().filter(user = request.user)
+        return redirect('home')
     else:
         return HttpResponse('404 - Not Found')
 
 def deletecomplete(request):
     toDo.objects.filter(user=request.user,isCompleted__exact=True).delete()
-
     return redirect('home')
 
 def deleteAll(request):
     toDo.objects.filter(user=request.user).delete()
+    return redirect('home')
 
+def markasComplete(request):
     return redirect('home')

@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from django.contrib.messages import constants as messages
 from pathlib import Path
-import os
 from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,6 +26,7 @@ SECRET_KEY = '3e9v#niaku)c$u3n(@u3@+8hx-00km&0o@%gqm(2tcl&8dj_(d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
 
 ALLOWED_HOSTS = []
 

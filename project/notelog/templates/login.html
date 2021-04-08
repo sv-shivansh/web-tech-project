@@ -4,22 +4,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <link rel = "stylesheet" href="{% static 'styles1.css' %}" type="text/css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+<!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
   <title>Document</title>
 </head>
 <body>
+   <section>
+      {% for message in messages %}
+      <div class="newalert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <strong>Message:</strong> {{ message }}
+      </div>
+      {% endfor %}  
+    </section>
   <div class="sidenav">
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-      <strong>Message : </strong> {{ message }}
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    {% endfor %}
+
            <div class="login-main-text">
               <h2>Application<br> Login Page</h2>
               <p>Login or register from here to access.</p>
@@ -28,10 +29,7 @@
         <div class="main">
            <div class="col-md-6 col-sm-12">
               <div class="login-form">
-                 <form action="/logined" method="post">
-                     {% if user.is_authenticated %}
-                     <h3>Welcome {{request.user}}</h3>
-                     {% else %}
+                 <form action="{% url 'login' %}" method="POST">
                     <div class="form-group">
                        <label for="id_username">User Name</label>
                        <input type="text" class="form-control" placeholder="User Name" name="loginusername" id="loginusername"required />
@@ -41,12 +39,10 @@
                        <input type="password" class="form-control" placeholder="Password" name="loginpassword" id="loginpassword"required />
                     </div>
                     <button type="submit" class="btn btn-black">Login</button>
-                    <button type="submit" class="btn btn-secondary">Register</button>
-                     {% endif %}
                  </form>
+                 <a href= "/register" ><button class="btn btn-secondary">Register</button></a> 
               </div>
            </div>
         </div>
-  
 </body>
 </html>
