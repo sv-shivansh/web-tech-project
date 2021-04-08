@@ -99,3 +99,13 @@ def addTodo(request):
         return render(request, 'home.html', {'todos': todos})
     else:
         return HttpResponse('404 - Not Found')
+
+def deletecomplete(request):
+    toDo.objects.filter(user=request.user,isCompleted__exact=True).delete()
+
+    return redirect('home')
+
+def deleteAll(request):
+    toDo.objects.filter(user=request.user).delete()
+
+    return redirect('home')

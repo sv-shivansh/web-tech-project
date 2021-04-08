@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^logined$', views.handleLogin, name='handleLogin'),
     url(r'^logout$', views.handleLogout, name='handleLogout'),
     url(r'^addTodo$', views.addTodo, name='addTodo'),
+    url(r'^deletecomplete$', views.deletecomplete, name='deletecomplete'),
+    url(r'^deleteAll$', views.deleteAll, name='deleteAll'),
 ]
