@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import logout, authenticate
@@ -16,6 +16,7 @@ def home(request):
         return render(request, 'home.html', {'todos': todos})
     else:
         return render(request, 'landing.html')
+
 
 @csrf_exempt
 def register(request):
@@ -73,7 +74,7 @@ def login(request):
 
 @csrf_exempt
 def logout(request):
-    logout(request)
+    auth.logout(request)
     messages.success(request, "Successfully, Logged Out.")
     return redirect('home')
 

@@ -15,8 +15,7 @@
 <body>
     <nav>
         Welcome {{ request.user }}
-        <a href="{% url 'logout' %}"><button type="button" class="btn btn-dark">Logout</button></a>
-
+        <a href="logout"><button type="button" class="btn btn-dark">Logout</button></a>
     </nav>
     <section>
             {% for message in messages %}
