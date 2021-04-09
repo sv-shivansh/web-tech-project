@@ -1,61 +1,77 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'clock.css' %}" type="text/css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
-    <title>Document</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
+    id="bootstrap-css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="{% static 'clock.css' %}" type="text/css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+  <title>Document</title>
 </head>
+
 <body>
-    <div class="clock-container">
-        <div class="clock-col">
-          <p class="clock-day clock-timer">
-          </p>
-          <p class="clock-label">
-            Day
-          </p>
-        </div>
-        <div class="clock-col">
-          <p class="clock-hours clock-timer">
-          </p>
-          <p class="clock-label">
-            Hours
-          </p>
-        </div>
-        <div class="clock-col">
-          <p class="clock-minutes clock-timer">
-          </p>
-          <p class="clock-label">
-            Minutes
-          </p>
-        </div>
-        <div class="clock-col">
-          <p class="clock-seconds clock-timer">
-          </p>
-          <p class="clock-label">
-            Seconds
-          </p>
-        </div>
-      </div>
-      <section>
-        <button type= "button" class= "btn btn-primary"><a href="login">Login</a></button>
-        <button type= "button" class= "btn btn-success"><a href="register">Register</a></button>
-      </section>
-      <script>
-        document.addEventListener('DOMContentLoaded', () =>
-          requestAnimationFrame(updateTime)
-        )
-        
-        function updateTime() {
-          document.documentElement.style.setProperty('--timer-day', "'" + moment().format("dd") + "'");
-          document.documentElement.style.setProperty('--timer-hours', "'" + moment().format("k") + "'");
-          document.documentElement.style.setProperty('--timer-minutes', "'" + moment().format("mm") + "'");
-          document.documentElement.style.setProperty('--timer-seconds', "'" + moment().format("ss") + "'");
-          requestAnimationFrame(updateTime);
-        }</script>
+  <section>
+    {% for message in messages %}
+    <div class="newalert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <strong>Message:</strong> {{ message }}
+    </div>
+    {% endfor %}
+  </section>
+  <div class="clock-container">
+    <div class="clock-col">
+      <p class="clock-day clock-timer">
+      </p>
+      <p class="clock-label">
+        Day
+      </p>
+    </div>
+    <div class="clock-col">
+      <p class="clock-hours clock-timer">
+      </p>
+      <p class="clock-label">
+        Hours
+      </p>
+    </div>
+    <div class="clock-col">
+      <p class="clock-minutes clock-timer">
+      </p>
+      <p class="clock-label">
+        Minutes
+      </p>
+    </div>
+    <div class="clock-col">
+      <p class="clock-seconds clock-timer">
+      </p>
+      <p class="clock-label">
+        Seconds
+      </p>
+    </div>
+  </div>
+  <section>
+    <button type="button" class="btn btn-primary"><a href="login">Login</a></button>
+    <button type="button" class="btn btn-success"><a href="register">Register</a></button>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () =>
+      requestAnimationFrame(updateTime)
+    )
+
+    function updateTime() {
+      document.documentElement.style.setProperty('--timer-day', "'" + moment().format("dd") + "'");
+      document.documentElement.style.setProperty('--timer-hours', "'" + moment().format("k") + "'");
+      document.documentElement.style.setProperty('--timer-minutes', "'" + moment().format("mm") + "'");
+      document.documentElement.style.setProperty('--timer-seconds', "'" + moment().format("ss") + "'");
+      requestAnimationFrame(updateTime);
+    }</script>
 </body>
+
 </html>
