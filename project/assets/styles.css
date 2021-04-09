@@ -2,6 +2,11 @@ body {
     background-color: #8f4df8
 }
 
+nav{position: absolute;
+    display: flex;
+    z-index: 10;
+}
+
 .main-todo-input {
     background: #fff;
     padding: 0 120px 0 0;

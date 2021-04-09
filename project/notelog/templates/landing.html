@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'clock.css' %}" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
     <title>Document</title>
 </head>
@@ -41,12 +42,8 @@
         </div>
       </div>
       <section>
-        <button>
-            <a href="login" class="button">Login</a>
-        </button>
-        <button>
-            <a href="register" class="button">Register</a>
-        </button>
+        <button type= "button" class= "btn btn-primary"><a href="login">Login</a></button>
+        <button type= "button" class= "btn btn-success"><a href="register">Register</a></button>
       </section>
       <script>
         document.addEventListener('DOMContentLoaded', () =>

@@ -11,7 +11,7 @@ from django.views.decorators.http import require_GET, require_POST
 
 
 def home(request):
-    if request.user == 'AnonymousUser':
+    if request.user.is_authenticated:
         todos = toDo.objects.all().filter(user = request.user)
         return render(request, 'home.html', {'todos': todos})
     else:
@@ -72,7 +72,7 @@ def login(request):
     return render(request, 'login.html')
 
 @csrf_exempt
-def handleLogout(request):
+def logout(request):
     logout(request)
     messages.success(request, "Successfully, Logged Out.")
     return redirect('home')
