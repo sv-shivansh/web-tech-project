@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import logout, authenticate
 from django.contrib.auth import login as auth_login
+from django.contrib.auth.decorators import login_required
 from .models import toDo
 from django.views.decorators.http import require_GET, require_POST
 
@@ -104,12 +105,14 @@ def deleteAll(request):
     toDo.objects.filter(user=request.user).delete()
     return redirect('home')
 
-
+@login_required
 def markasComplete(request):
-    # print("Changed")
-    # if request.method == 'POST':
-    #     if request.POST.get("markasCompleted"):
-    #         print("Changed")
-    #         toDo(isCompleted=True)
-    #         toDo.save()
+    if request.method == 'POST':
+        todos = toDo.objects.all().filter(user=request.user)
+        for todo in todos:
+            task = todo.task
+            if request.POST.get(task):
+                todo.isCompleted = True
+                todo.save()
+                break
     return redirect('home')
