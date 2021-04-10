@@ -12,20 +12,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="{% static 'clock.css' %}" type="text/css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=RocknRoll+One&display=swap" rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
   <title>Document</title>
+  <style>
+    .newalert {
+      top: 0px;
+      position: fixed;
+      left: 0;
+      text-align: center;
+      padding: 20px;
+      background-color:  #DFF2BF;
+      color: #4F8A10;
+
+      width: 100%;
+    }
+    
+    .closebtn {
+      margin-left: 15px;
+      color: #4F8A10;
+      font-weight: bold;
+      float: right;
+      font-size: 25px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    #AppName{
+      top: 10spx;
+      position: fixed;
+      margin-bottom: 250px;
+      padding-bottom: 50px;
+    }
+    .Heading{
+      font-size: 88px;
+      color: white;
+      font-family: 'RocknRoll One', sans-serif;
+    }
+
+    .tagline{
+      margin-top: 10px;
+      color: white;
+      font-weight:100;
+      font-size: 30px;
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+    }
+    
+    </style>
 </head>
 
 <body>
-  <section>
+  <div>
     {% for message in messages %}
     <div class="newalert">
       <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
       <strong>Message:</strong> {{ message }}
     </div>
     {% endfor %}
-  </section>
+  </div>
+  <div id="AppName">
+    <h1 class="Heading">NoteLog</h1>
+    <p class="tagline">Let us help manage your day</p>
+  </div>
   <div class="clock-container">
     <div class="clock-col">
       <p class="clock-day clock-timer">

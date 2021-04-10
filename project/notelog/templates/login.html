@@ -13,7 +13,32 @@
    <link rel="stylesheet" href="{% static 'styles1.css' %}" type="text/css">
    <title>Document</title>
 </head>
+<style>
+   .newalert {
+     top: 0px;
+     position: fixed;
+     left: 0;
+     
+     padding: 20px;
+     color: #D8000C;
+        background-color: #FFBABA;
 
+     width: 100%;
+   }
+   
+   .closebtn {
+     margin-left: 15px;
+     color: #D8000C;
+     font-weight: bold;
+     float: right;
+     font-size: 25px;
+     line-height: 20px;
+     cursor: pointer;
+     transition: 0.3s;
+   }
+   
+   
+   </style>
 <body>
    <section>
       {% for message in messages %}
