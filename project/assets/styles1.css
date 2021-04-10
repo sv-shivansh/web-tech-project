@@ -3,11 +3,6 @@ body {
   /* background-color: rgb(0, 0, 0); */
 }
 
-.newalert {
-  background-color: #361b4d;
-  color: white;
-}
-
 section {
   position: fixed;
   z-index: 2;
@@ -18,19 +13,27 @@ section strong {
   padding-left: 40%;
   text-align: center;
 }
+.newalert {
+  top: 0px;
+  position: fixed;
+  left: 0;
+  text-align: center;
+  padding: 20px;
+  background-color: #dff2bf;
+  color: #4f8a10;
+
+  width: 100%;
+}
+
 .closebtn {
   margin-left: 15px;
-  color: white;
+  color: #4f8a10;
   font-weight: bold;
   float: right;
-  font-size: 22px;
+  font-size: 25px;
   line-height: 20px;
   cursor: pointer;
   transition: 0.3s;
-}
-
-.closebtn:hover {
-  color: black;
 }
 
 .main-head {
@@ -40,7 +43,7 @@ section strong {
 
 .sidenav {
   height: 100%;
-  background: url("17.jpg") no-repeat center center fixed;
+  background: url("18.jpg") no-repeat center center fixed;
   background-size: cover;
   overflow-x: hidden;
   padding-top: 20px;
@@ -74,6 +77,11 @@ section strong {
     /* background-color: rgb(255, 255, 255); */
   }
 
+  .main-register {
+    margin-left: 50%;
+    margin-top: 10%;
+  }
+
   .sidenav {
     width: 50%;
     position: fixed;
@@ -103,7 +111,7 @@ section strong {
   margin-top: 25%;
   padding: 60px;
   color: rgb(0, 0, 0);
-  /* margin-left: 10%; */
+  font-family: "RocknRoll One", sans-serif;
 }
 
 .login-main-text h2 {
@@ -113,4 +121,16 @@ section strong {
 
 .login-main-text p {
   font-size: 150%;
+}
+
+.login-main-text hr {
+  margin-left: 0px;
+  border-top: 3px solid;
+  width: 400px;
+  opacity: 1;
+}
+
+.main-register {
+  padding: 0px 10px;
+  font-size: 120%;
 }
