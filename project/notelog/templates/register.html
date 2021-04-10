@@ -7,6 +7,9 @@
   <!-- CSS only -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
     id="bootstrap-css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=RocknRoll+One&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="{% static 'styles1.css' %}" type="text/css">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,11 +28,12 @@
   </section>
   <div class="sidenav">
     <div class="login-main-text">
-      <h2>Application<br> Register Page</h2>
-      <p>Login or register from here to access.</p>
+      <h2>NoteLog<br> Register Page</h2>
+      <hr />
+      <p>Login/Register to access.</p>
     </div>
   </div>
-  <div class="main">
+  <div class="main-register">
     <div class="col-md-6 col-sm-12">
       <div class="login-form">
         <form action="{% url 'register' %}" method="POST">
@@ -52,7 +56,7 @@
               required />
 
           </div>
-          <button type="submit" style="width:100px; margin:5px 0px; color: #fff; background-color:#44596b !important;"
+          <button type="submit" style="width:100px; margin:5px 0px; color: #fff; background-color:#040607 !important;"
             class="btn">Register</button>
         </form>
         <a href="/login"><button style="width:100px; margin:5px 0px; color: #fff; background-color:#44596b !important;"

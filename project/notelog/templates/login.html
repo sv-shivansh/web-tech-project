@@ -7,6 +7,9 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
       id="bootstrap-css">
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=RocknRoll+One&display=swap"
+      rel="stylesheet">
    <link rel="stylesheet" href="{% static 'styles1.css' %}" type="text/css">
    <title>Document</title>
 </head>
@@ -23,8 +26,9 @@
    <div class="sidenav">
 
       <div class="login-main-text">
-         <h2>Application<br> Login Page</h2>
-         <p>Login or register from here to access.</p>
+         <h2>NoteLog<br> Login Page</h2>
+         <hr />
+         <p>Login/Register to access.</p>
       </div>
    </div>
    <div class="main">
@@ -32,7 +36,7 @@
          <div class="login-form">
             <form action="{% url 'login' %}" method="POST">
                <div class="form-group">
-                  <label for="id_username">User Name</label>
+                  <label for="id_username">Username</label>
                   <input type="text" class="form-control" placeholder="User Name" name="loginusername"
                      id="loginusername" required />
                </div>
@@ -42,7 +46,7 @@
                      id="loginpassword" required />
                </div>
                <button type="submit"
-                  style="width:100px; margin:5px 0px; color: #fff; background-color:#44596b !important;"
+                  style="width:100px; margin:5px 0px; color: #fff; background-color:#040607 !important;"
                   class="btn">Login</button>
             </form>
             <a href="/register"><button class="btn"

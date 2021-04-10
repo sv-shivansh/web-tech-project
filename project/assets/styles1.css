@@ -1,5 +1,6 @@
 body {
   font-family: "Lato", sans-serif;
+  /* background-color: rgb(0, 0, 0); */
 }
 
 .newalert {
@@ -39,13 +40,15 @@ section strong {
 
 .sidenav {
   height: 100%;
-  background-color: #000;
+  background: url("17.jpg") no-repeat center center fixed;
+  background-size: cover;
   overflow-x: hidden;
   padding-top: 20px;
 }
 
 .main {
   padding: 0px 10px;
+  font-size: 120%;
 }
 
 @media screen and (max-height: 450px) {
@@ -66,11 +69,13 @@ section strong {
 
 @media screen and (min-width: 768px) {
   .main {
-    margin-left: 40%;
+    margin-left: 50%;
+    margin-top: 15%;
+    /* background-color: rgb(255, 255, 255); */
   }
 
   .sidenav {
-    width: 40%;
+    width: 50%;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -95,12 +100,17 @@ section strong {
 }
 
 .login-main-text {
-  margin-top: 20%;
+  margin-top: 25%;
   padding: 60px;
-  color: #fff;
+  color: rgb(0, 0, 0);
+  /* margin-left: 10%; */
 }
 
 .login-main-text h2 {
   font-weight: 300;
-  font-size: 300%;
+  font-size: 350%;
+}
+
+.login-main-text p {
+  font-size: 150%;
 }
