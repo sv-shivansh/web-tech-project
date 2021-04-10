@@ -13,9 +13,10 @@
 
   <link rel="stylesheet" href="{% static 'clock.css' %}" type="text/css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=RocknRoll+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=RocknRoll+One&display=swap"
+    rel="stylesheet">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
   <title>Document</title>
@@ -26,12 +27,12 @@
       left: 0;
       text-align: center;
       padding: 20px;
-      background-color:  #DFF2BF;
+      background-color: #DFF2BF;
       color: #4F8A10;
 
       width: 100%;
     }
-    
+
     .closebtn {
       margin-left: 15px;
       color: #4F8A10;
@@ -42,29 +43,29 @@
       cursor: pointer;
       transition: 0.3s;
     }
-    
-    #AppName{
+
+    #AppName {
       top: 10spx;
       position: fixed;
       margin-bottom: 250px;
       padding-bottom: 50px;
     }
-    .Heading{
+
+    .Heading {
       font-size: 88px;
       color: white;
       font-family: 'RocknRoll One', sans-serif;
     }
 
-    .tagline{
+    .tagline {
       margin-top: 10px;
       color: white;
-      font-weight:100;
+      font-weight: 100;
       font-size: 30px;
       text-align: center;
       font-family: 'Dancing Script', cursive;
     }
-    
-    </style>
+  </style>
 </head>
 
 <body>
@@ -111,8 +112,8 @@
     </div>
   </div>
   <section>
-    <button type="button" class="btn btn-primary"><a href="login">Login</a></button>
-    <button type="button" class="btn btn-success"><a href="register">Register</a></button>
+    <a href="login"><button type="button" class="btn btn-lg btn-primary">Login</button></a>
+    <a href="register"><button type="button" class="btn btn-lg btn-success">Register</button></a>
   </section>
   <script>
     document.addEventListener('DOMContentLoaded', () =>

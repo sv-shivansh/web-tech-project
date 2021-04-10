@@ -4,7 +4,7 @@
 
 <head>
     <style>
-        .btn-primary{
+        .btn-primary {
             float: right;
         }
     </style>
@@ -23,20 +23,13 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-light">
+    <nav class="navbar navbar-light bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" style="font-weight: 500; font-size: 25px; font-style: oblique;">Welcome {{ request.user }}</a>
-            <a href="logout"><button type="button" class="btn btn-outline-secondary">Logout</button></a>
+            <a class="navbar-brand" style="font-weight: 500; font-size: 25px; font-style: oblique;">Welcome
+                {{ request.user }}</a>
+            <a href="logout"><button type="button" class="btn btn-success">Logout</button></a>
         </div>
     </nav>
-    <section>
-        {% for message in messages %}
-        <div class="newalert">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <strong>Message:</strong> {{ message }}
-        </div>
-        {% endfor %}
-    </section>
     {% if user.is_authenticated %}
     <form action="{% url 'addTodo' %}" method="POST" role="form">
         {% csrf_token %}
@@ -56,26 +49,30 @@
         <div class="col-md-12">
             <div class="main-todo-input-wrap">
                 <center><a href="{% url 'deletecomplete' %}"><button type="button" class="btn btn-dark">Delete
-                        Completed</button></a>
-                <a href="{% url 'deleteAll' %}"><button type="button" class="btn btn-dark">Delete All</button></a></center>
+                            Completed</button></a>
+                    <a href="{% url 'deleteAll' %}"><button type="button" class="btn btn-dark">Delete All</button></a>
+                </center>
                 <div class="main-todo-input fl-wrap todo-listing">
                     <form action="{% url 'markasComplete' %}" method="post">
                         {% csrf_token %}
                         <ul id="list-items">
-                            <div class = "row">
-                            {% for todo in todos %}
-                            <h5>
-                                {% if todo.isCompleted %}
-                                    <s><li>{{ todo.task }}</li></s>
-                                {% else %}
-                                <li>{{ todo.task }}
-                                    <input type="submit" id = "{{todo.task}}" value = "Mark as Complete" name="{{todo.task}}" class="btn btn-primary"></input>
-                                </li>
-                                {% endif %}
-                            </h5>
-                            <hr>
-                            {% endfor %}
-                        </div>
+                            <div class="row">
+                                {% for todo in todos %}
+                                <h5>
+                                    {% if todo.isCompleted %}
+                                    <s>
+                                        <li>{{ todo.task }}</li>
+                                    </s>
+                                    {% else %}
+                                    <li>{{ todo.task }}
+                                        <input type="submit" style=" float: right;" id="{{todo.task}}"
+                                            value="Mark as Complete" name="{{todo.task}}" class="btn btn-dark"></input>
+                                    </li>
+                                    {% endif %}
+                                </h5>
+                                <hr>
+                                {% endfor %}
+                            </div>
                         </ul>
                     </form>
                 </div>

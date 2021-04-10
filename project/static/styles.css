@@ -1,16 +1,19 @@
 body {
   /* background-color: #8f4df8; */
-  background: linear-gradient(45deg, #222121 0, #141731 90%);
+  /* background: linear-gradient(45deg, #222121 0, #141731 90%); */
+
+  background: url("312.jpg") no-repeat center center fixed;
   height: 100%;
   margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  /* background-repeat: no-repeat;
+  background-attachment: fixed; */
 }
 
 nav {
   position: absolute;
   display: flex;
   z-index: 10;
+  color: #eee;
 }
 
 .main-todo-input {
@@ -44,6 +47,7 @@ nav {
   box-sizing: border-box;
   border-right: 1px solid #eee;
   height: 50px;
+  background: rgb(88, 88, 88);
   position: relative;
 }
 
@@ -57,10 +61,16 @@ nav {
   width: 100%;
   height: 50px;
   padding-left: 20px;
+  background: rgb(88, 88, 88);
 }
-
+::placeholder {
+  color: white;
+}
+input:focus {
+  color: #eee;
+}
 .main-search-button {
-  background: #4db7fe;
+  background: black;
 }
 
 .main-search-button {
@@ -144,4 +154,6 @@ ul {
 .todo-listing {
   padding: 0px 29px 0 0;
   margin-top: 54px !important;
+  background: rgb(88, 88, 88);
+  color: white;
 }

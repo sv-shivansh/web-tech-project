@@ -88,9 +88,10 @@ def addTodo(request):
         todos = toDo.objects.all().filter(user=request.user)
         user = request.user
         task = request.POST["task"]
-        addmsg = toDo(task=task, user=user)
-        addmsg.save()
-        todos = toDo.objects.all().filter(user=request.user)
+        if task.isalnum():
+            addmsg = toDo(task=task, user=user)
+            addmsg.save()
+            todos = toDo.objects.all().filter(user=request.user)
         return redirect('home')
     else:
         return HttpResponse('404 - Not Found')
@@ -104,6 +105,7 @@ def deletecomplete(request):
 def deleteAll(request):
     toDo.objects.filter(user=request.user).delete()
     return redirect('home')
+
 
 @login_required
 def markasComplete(request):
