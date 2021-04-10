@@ -29,18 +29,18 @@ body {
   justify-content: center;
 }
 
-.newalert {
+/* .newalert {
   position: fixed;
   display: flex;
   background-color: #361b4d;
   color: white;
-}
+} */
 
 section {
   position: absolute;
   display: flex;
   align-items: center;
-  margin-top: 300px;
+  margin-top: 500px;
   margin-left: auto;
 }
 
@@ -56,8 +56,8 @@ section button a:hover {
   color: rgb(0, 0, 0);
 }
 .clock-container {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 200px;
+  
   background-color: #080808;
   border-radius: 5px;
   padding: 60px 20px;
