@@ -59,10 +59,14 @@
                         <ul id="list-items">
                             {% for todo in todos %}
                             <h5>
+                                {% if todo.isCompleted %}
+                                    <s><li>{{ todo.task }}</li></s>
+                                {% else %}
                                 <li>{{ todo.task }}
                                     <button type="submit" name="markasCompleted" class="btn btn-primary">Mark as
                                         Completed</button>
                                 </li>
+                                {% endif %}
                             </h5>
                             {% endfor %}
                         </ul>
