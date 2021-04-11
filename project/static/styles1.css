@@ -21,7 +21,6 @@ section strong {
   padding: 20px;
   background-color: #dff2bf;
   color: #4f8a10;
-
   width: 100%;
 }
 
@@ -133,4 +132,11 @@ section strong {
 .main-register {
   padding: 0px 10px;
   font-size: 120%;
+}
+
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
 }

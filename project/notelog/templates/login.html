@@ -14,16 +14,20 @@
    <title>NoteLog</title>
 </head>
 <style>
-   .newalert {
-     top: 0px;
-     position: fixed;
-     left: 0;
-     
-     padding: 20px;
-     color: #D8000C;
-        background-color: #FFBABA;
+   section strong {
+      font-size: large;
+      padding-left: 10%;
+      text-align: center;
+   }
 
-     width: 100%;
+   .newalert {
+      top: 0px;
+      position: fixed;
+      text-align: center;
+      padding: 20px;
+      color: #D8000C;
+      background-color: #FFBABA;
+      width: 100%;
    }
    
    .closebtn {
@@ -36,8 +40,6 @@
      cursor: pointer;
      transition: 0.3s;
    }
-   
-   
    </style>
 <body>
    <section>
@@ -62,7 +64,7 @@
             <form action="{% url 'login' %}" method="POST">
                <div class="form-group">
                   <label for="id_username">Username</label>
-                  <input type="text" class="form-control" placeholder="User Name" name="loginusername"
+                  <input type="text" class="form-control" placeholder="Username" name="loginusername"
                      id="loginusername" required />
                </div>
                <div class="form-group">

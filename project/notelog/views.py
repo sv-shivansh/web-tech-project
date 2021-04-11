@@ -88,7 +88,7 @@ def addTodo(request):
         todos = toDo.objects.all().filter(user=request.user)
         user = request.user
         task = request.POST["task"]
-        if task.isalnum():
+        if task != '':
             addmsg = toDo(task=task, user=user)
             addmsg.save()
             todos = toDo.objects.all().filter(user=request.user)
@@ -114,7 +114,10 @@ def markasComplete(request):
         for todo in todos:
             task = todo.task
             if request.POST.get(task):
-                todo.isCompleted = True
-                todo.save()
-                break
+                if todo.isCompleted == True:
+                    continue
+                else:
+                    todo.isCompleted = True
+                    todo.save()
+                    break
     return redirect('home')
