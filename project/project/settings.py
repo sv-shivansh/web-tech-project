@@ -29,7 +29,7 @@ SECRET_KEY = '3e9v#niaku)c$u3n(@u3@+8hx-00km&0o@%gqm(2tcl&8dj_(d'
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'notelog-web-app.herokuapp.com']
 
 
 # Application definition
